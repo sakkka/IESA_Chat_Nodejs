@@ -13,16 +13,15 @@ module.exports = function (app){
 
 		listen : function() {
 			this._io.on('connection', function(socket){ 
-
 				console.log("SERVER: Incomming connexion !!");
 
-				socket.on('msg', function(content){
-					console.log(content);
-
-					socket.emit('confirm', "super reponse du server");
-				});
+				socket.on('chatMsg', app.messages.receive());
 
 		 	});
+		},
+
+		emit : function (chan, content) {
+			app.socket._io.emit(chan, content);
 		}
 	}
 

@@ -9,7 +9,7 @@
 
 	Test page
 
-	<button onclick = "emit()">Message</button>
+	<button onclick = "emit2()">Message</button>
 
 	<script>
 		var socket = io();
@@ -17,6 +17,11 @@
 		function emit() {
 			socket.emit('msg', 'message du client au server');
 		}
+
+		function emit2() {
+			socket.emit('chatMsg', 'hahahahah');
+		}
+
 		socket.on('confirm', function(content) {
 			alert(content);
 		});
