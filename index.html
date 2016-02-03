@@ -1,0 +1,26 @@
+<head>
+
+	<title>SUPER CLIENT DU TURFU</title>
+	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+</head>
+
+<body>
+
+	Test page
+
+	<button onclick = "emit()">Message</button>
+
+	<script>
+		var socket = io();
+		
+		function emit() {
+			socket.emit('msg', 'message du client au server');
+		}
+		socket.on('confirm', function(content) {
+			alert(content);
+		});
+
+	</script>
+
+</body>
